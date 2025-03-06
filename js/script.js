@@ -10,8 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (email === "" || password === "") {
             alert("Email dan password harus diisi!");
         } else {
-            alert("Login berhasil! (Simulasi)");
-            window.location.href = "index.html"; // Redirect ke dashboard
+            window.location.href = "index.html"; // Redirect ke dashboard tanpa alert
         }
     });
 });

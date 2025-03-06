@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/signup.js"></script>
 </head>
 <body class="flex h-screen">
     <div class="w-1/2 h-full flex items-center justify-center">
@@ -13,8 +14,8 @@
     
     <div class="w-1/2 flex items-center justify-center">
         <div class="w-3/4">
-            <h1 class="text-4xl font-bold mb-8">Sign Up</h1>
-            <form>
+            <h1 class="text-4xl font-bold mb-8 text-center">Sign Up</h1>
+            <form id="signup-form">
                 <div class="mb-4">
                     <label for="name">Full Name</label>
                     <input type="text" id="name" placeholder="Enter your full name" required>
@@ -25,9 +26,15 @@
                     <input type="email" id="email" placeholder="example@gmail.com" required>
                 </div>
                 
-                <div class="mb-6">
+                <div class="mb-4">
                     <label for="password">Password</label>
                     <input type="password" id="password" placeholder="Create a password" required>
+                </div>
+
+                <div class="mb-4">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+                    <p id="error-message" class="text-red-500 text-sm hidden">Passwords do not match!</p>
                 </div>
                 
                 <div class="mb-4">
