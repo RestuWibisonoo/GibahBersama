@@ -1,109 +1,18 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpeakUp!</title>
-    
-    <!-- Tailwind CSS -->
+    <title>SpeakUp! - Welcome</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="text-white">
-
-    <!-- Navbar -->
-    <nav class="flex justify-between items-center p-6 bg-white shadow-md">
-        <div class="text-2xl font-bold text-black">SpeakUp!</div>
-        <div class="hidden md:flex space-x-6">
-            <a href="#" class="text-black hover:text-gray-600">Groups</a>
-            <a href="#" class="text-black hover:text-gray-600">Trending</a>
-            <a href="#" class="text-black hover:text-gray-600">Discover</a>
-        </div>
-        <div class="flex items-center space-x-4 relative">
-            <!-- Notifikasi -->
-            <div class="notif-container relative cursor-pointer">
-                <img src="assets/notif.png" alt="Notifikasi" class="w-6 h-6" id="notifIcon">
-                <div class="notif-popup absolute w-48">
-                    <p>Tidak ada notifikasi baru</p>
-                </div>
-            </div>
-            
-            <input type="text" placeholder="Search" class="px-3 py-1 text-black border border-gray-300 rounded-md">
-            <button onclick="window.location.href='login.html'" class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800">Login</button>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <main class="flex flex-col md:flex-row items-center justify-between p-6 md:p-20">
-        <div class="md:w-1/2">
-            <img src="assets/maincontent.png" 
-                alt="Main Content Image" 
-                class="rounded-lg w-full max-w-lg">
-        </div>
-        <div class="md:w-1/2 text-center md:text-left mt-6 md:mt-0 md:pl-10">
-            <h1 class="text-4xl md:text-5xl font-bold text-black" id="animated-text"></h1>
-            <p class="mt-4 text-gray-700">Platform Diskusi untuk menjelajahi minat Anda di SpeakUp!</p>
-            <button class="mt-6 bg-green-500 text-white py-2 px-4 rounded-full hover:bg-green-600">Mulai Sekarang</button>
-        </div>
-    </main>
-
-    <!-- Rooms Section -->
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl font-bold text-black mb-8">Temukan Ruang</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-                <script>
-                    let roomHTML = "";
-                    for (let i = 0; i < 5; i++) {
-                        roomHTML += `
-                            <div class="bg-white rounded-lg shadow-md p-4 text-black">
-                                <img src="https://storage.googleapis.com/a1aa/image/yx6oVhY61OOH568OegNOaHALZXEqVgk8bpR6F7DjuVU.jpg" 
-                                    alt="Room image" 
-                                    class="w-40 h-40 object-cover rounded-full mx-auto">
-                                <p class="mt-4 text-center">Informasi mengenai dunia Gadget dan Teknologi</p>
-                            </div>
-                        `;
-                    }
-                    document.write(roomHTML);
-                </script>
-            </div>
-        </div>
+<body class="flex justify-center items-center h-screen bg-gradient-to-r from-blue-500 to-purple-500">
+    <div class="text-center text-white">
+        <h1 class="text-4xl font-bold mb-6">Welcome to SpeakUp!</h1>
+        <p class="mb-6">nanti ini di isi sesuatu aja</p>
+        <a href="home.html" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold shadow-md hover:bg-gray-200">
+            Enter SpeakUp!
+        </a>
     </div>
-    <!-- Footer -->
-    <div>
-        <footer class="bg-gray-900 text-white py-6 mt-12 text-center">
-            <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-                <div class="text-center md:text-left mb-4 md:mb-0">
-                    <h3 class="text-lg font-semibold">SpeakUp!</h3>
-                    <p class="text-gray-400">Tempat terbaik untuk berdiskusi dan berbagi ide</p>
-                </div>
-                <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-            <div class="text-center text-gray-500 mt-4 text-sm">
-                &copy; 2024 SpeakUp! All rights reserved.
-            </div>
-            <div class="text-center mt-4">
-                <div class="flex justify-center space-x-4">
-                    <a href="about.html" target="_blank" class="hover:underline">Tentang Kami</a>
-                    <a href="#" class="hover:underline">Kebijakan Privasi</a>
-                    <a href="contact.html" target="_blank" class="hover:underline">Hubungi Kami</a>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <!-- Custom JavaScript -->
-    <script src="js/main.js"></script>
-    <script src="js/style.js"></script>
 </body>
 </html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SpeakUp!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gradient-to-r from-blue-500 to-purple-500 font-sans">
+    <div class="flex h-screen">
+        <!-- Sidebar -->
+        <aside class="w-1/5 bg-white p-6">
+            <h1 class="text-3xl font-bold mb-10">SpeakUp!</h1>
+            <nav class="space-y-6">
+                <button class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold" onclick="changeIcon(this)">
+                    <img src="icons/home.png" data-default="icons/home.png" data-clicked="icons/home-click.png" class="w-6 h-6" alt="Home" />
+                    <span>Home</span>
+                </button>
+                <button class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold" onclick="changeIcon(this)">
+                    <img src="icons/message.png" data-default="icons/message.png" data-clicked="icons/message-click.png" class="w-6 h-6" alt="Message" />
+                    <span>Message</span>
+                </button>
+                <button class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold" onclick="changeIcon(this)">
+                    <img src="icons/community.png" data-default="icons/community.png" data-clicked="icons/community-click.png" class="w-6 h-6" alt="Community" />
+                    <span>Community</span>
+                </button>
+                <button class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold" onclick="changeIcon(this)">
+                    <img src="icons/bookmark.png" data-default="icons/bookmark.png" data-clicked="icons/bookmark-click.png" class="w-6 h-6" alt="Bookmark" />
+                    <span>Bookmark</span>
+                </button>
+                <button class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold" onclick="changeIcon(this)">
+                    <img src="icons/setting.png" data-default="icons/setting.png" data-clicked="icons/setting-click.png" class="w-6 h-6" alt="Settings" />
+                    <span>Settings</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 flex flex-col">
+            <!-- Top Bar -->
+            <header class="flex items-center bg-white p-4 shadow space-x-4">
+                <!-- Search Bar Full Width & Pindah ke Kiri -->
+                <div class="flex-1 relative">
+                    <input type="text" placeholder="Search" class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-lg"></i>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="p-3 rounded-full hover:bg-gray-200 nav-button" onclick="changeIcon(this)">
+                        <img src="icons/note.png" data-default="icons/note.png" data-clicked="icons/note-click.png" width="28" height="28" />
+                    </button>
+                    <button class="p-3 rounded-full hover:bg-gray-200 nav-button" onclick="changeIcon(this)">
+                        <img src="icons/notification.png" data-default="icons/notification.png" data-clicked="icons/notification-click.png" width="28" height="28" />
+                    </button>
+                    <button class="p-3 rounded-full hover:bg-gray-200 nav-button" onclick="changeIcon(this)">
+                        <img src="icons/globe.png" data-default="icons/globe.png" data-clicked="icons/globe-click.png" width="28" height="28" />
+                    </button>
+                    <button class="p-3 rounded-full hover:bg-gray-200">
+                        <i class="fas fa-ellipsis-h text-lg"></i>
+                    </button>
+                    <button class="p-3 rounded-full hover:bg-gray-200 nav-button" onclick="changeIcon(this)">
+                        <img src="icons/profile.png" data-default="icons/profile.png" data-clicked="icons/profile-click.png" width="28" height="28" />
+                    </button>
+                </div>
+            </header>
+
+            <!-- Tabs and Content -->
+            <section class="flex-1 flex overflow-hidden">
+                <!-- Left Content (Scrollable) -->
+                <article class="w-3/5 p-6 space-y-6 overflow-y-auto h-full">
+                    <div class="flex items-center space-x-3 bg-white p-4 rounded-lg shadow">
+                        <i class="fas fa-user text-gray-400 text-xl"></i>
+                        <input type="text" placeholder="Do You Have a Question?" class="flex-1 border-none focus:outline-none text-lg" />
+                        <button class="p-2 rounded-full hover:bg-gray-200" onclick="changeIcon(this)">
+                            <img src="icons/write.png" data-default="icons/write.png" data-clicked="icons/write-click.png" width="24" height="24" />
+                        </button>
+                    </div>
+
+                    <!-- Post Section (Scrollable) -->
+                    <div class="space-y-6">
+                        <!-- Post 1 -->
+                        <div class="bg-white p-4 rounded-lg shadow space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <img alt="User profile picture" class="w-10 h-10 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Indonesian_Coordinating_Minister_Luhut_Binsar_Pandjaitan_in_Washington%2C_D.C._on_4_August_2023_-_%28cropped%29.jpg" />
+                                <div>
+                                    <p class="font-bold">Nick Name</p>
+                                    <p class="text-gray-500">@username</p>
+                                </div>
+                            </div>
+                            <p>Bagaimana cara kerja AI dalam mendeteksi wajah di kamera HP?</p>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-blue-500">Answer</button>
+                                <i class="fas fa-pen text-gray-400"></i>
+                            </div>
+                        </div>
+
+                        <!-- Post 2 -->
+                        <div class="bg-white p-4 rounded-lg shadow space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <img alt="User profile picture" class="w-10 h-10 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Indonesian_Coordinating_Minister_Luhut_Binsar_Pandjaitan_in_Washington%2C_D.C._on_4_August_2023_-_%28cropped%29.jpg" />
+                                <div>
+                                    <p class="font-bold">Nick Name</p>
+                                    <p class="text-gray-500">@username</p>
+                                </div>
+                            </div>
+                            <p>Kenapa ketika kita menghirup napas dalam-dalam, rasanya lebih lega?</p>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-blue-500">Answer</button>
+                                <i class="fas fa-pen text-gray-400"></i>
+                            </div>
+                        </div>
+
+                        <!-- Post 3 -->
+                        <div class="bg-white p-4 rounded-lg shadow space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <img alt="User profile picture" class="w-10 h-10 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Indonesian_Coordinating_Minister_Luhut_Binsar_Pandjaitan_in_Washington%2C_D.C._on_4_August_2023_-_%28cropped%29.jpg" />
+                                <div>
+                                    <p class="font-bold">Nick Name</p>
+                                    <p class="text-gray-500">@username</p>
+                                </div>
+                            </div>
+                            <p>Bagaimana cara terbaik mengelola keuangan untuk pemula?</p>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-blue-500">Answer</button>
+                                <i class="fas fa-pen text-gray-400"></i>
+                            </div>
+                        </div>
+
+                        <!-- Post 4 -->
+                        <div class="bg-white p-4 rounded-lg shadow space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <img alt="User profile picture" class="w-10 h-10 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Indonesian_Coordinating_Minister_Luhut_Binsar_Pandjaitan_in_Washington%2C_D.C._on_4_August_2023_-_%28cropped%29.jpg" />
+                                <div>
+                                    <p class="font-bold">Nick Name</p>
+                                    <p class="text-gray-500">@username</p>
+                                </div>
+                            </div>
+                            <p>Kenapa semakin sering kita berolahraga, semakin sehat tubuh kita?</p>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-blue-500">Answer</button>
+                                <i class="fas fa-pen text-gray-400"></i>
+                            </div>
+                        </div>
+
+                        <!-- Post 5 -->
+                        <div class="bg-white p-4 rounded-lg shadow space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <img alt="User profile picture" class="w-10 h-10 rounded-full" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Indonesian_Coordinating_Minister_Luhut_Binsar_Pandjaitan_in_Washington%2C_D.C._on_4_August_2023_-_%28cropped%29.jpg" />
+                                <div>
+                                    <p class="font-bold">Nick Name</p>
+                                    <p class="text-gray-500">@username</p>
+                                </div>
+                            </div>
+                            <p>Apakah ada cara mudah untuk belajar bahasa pemrograman dalam waktu singkat?</p>
+                            <div class="flex items-center space-x-2">
+                                <button class="text-blue-500">Answer</button>
+                                <i class="fas fa-pen text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Right Content (Scrollable Trending) -->
+                <aside class="w-2/5 p-6 overflow-y-auto h-full">
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <h2 class="font-bold mb-4">Trending</h2>
+                        <div class="space-y-2">
+                            <!-- Trending Topics -->
+                            <div>
+                                <p class="text-gray-500">Sains</p>
+                                <p class="font-bold">Penemuan baru tentang lubang hitam</p>
+                                <p class="text-gray-500">78 rb diskusi</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500">Kesehatan</p>
+                                <p class="font-bold">Manfaat minum air putih 8 gelas sehari</p>
+                                <p class="text-gray-500">92 rb diskusi</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500">Bisnis</p>
+                                <p class="font-bold">Tips sukses membangun startup</p>
+                                <p class="text-gray-500">83 rb diskusi</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500">Astronomi</p>
+                                <p class="font-bold">NASA akan meluncurkan misi ke Mars</p>
+                                <p class="text-gray-500">45 rb diskusi</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-500">Teknologi</p>
+                                <p class="font-bold">Bagaimana AI akan mengubah dunia kerja?</p>
+                                <p class="text-gray-500">120 rb diskusi</p>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function changeIcon(button) {
+            let img = button.querySelector("img");
+            if (img) {
+                img.src = img.src.includes("-click.png") ? img.dataset.default : img.dataset.clicked;
+            }
+        }
+    </script>
+</body>
+
+</html>
