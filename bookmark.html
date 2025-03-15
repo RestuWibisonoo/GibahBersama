@@ -166,25 +166,6 @@
         </main>
     </div>
 
-    <script>
-        function changeIcon(button) {
-            // Reset semua ikon sebelum mengganti yang diklik
-            resetIcons();
-
-            // Ambil elemen gambar dalam tombol yang diklik
-            let img = button.querySelector("img");
-
-            // Ubah ikon menjadi 'clicked'
-            img.src = img.getAttribute("data-clicked");
-        }
-
-        function resetIcons() {
-            // Kembalikan semua ikon ke default
-            document.querySelectorAll(".nav-button img, .logout-button img").forEach(img => {
-                img.src = img.getAttribute("data-default");
-            });
-        }
-    </script>
 </body>
 
 </html>

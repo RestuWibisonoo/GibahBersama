@@ -63,9 +63,9 @@
                         class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 </div>
 
-                <!-- Navigasi Tanpa JS -->
+                <!-- Navigasi -->
                 <div class="flex items-center space-x-4">
-                    <a href="#" class="p-3 rounded-full hover:bg-gray-200">
+                    <a href="#" onclick="openPopup()" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="icons/note.png" width="28" height="28" />
                     </a>
                     <a href="#" class="p-3 rounded-full hover:bg-gray-200">
@@ -85,7 +85,7 @@
 
             <!-- Tabs and Content -->
             <section class="flex-1 flex overflow-hidden">
-                <!-- Left Content (Scrollable) -->
+                <!-- Left Content -->
                 <article class="w-2/3 p-6 space-y-6 overflow-y-auto h-full">
                     <div class="flex items-center space-x-3 bg-white p-4 rounded-lg shadow">
                         <i class="fas fa-user text-gray-400 text-xl"></i>
@@ -96,9 +96,8 @@
                         </a>
                     </div>
 
-                    <!-- Post Section (Scrollable) -->
+                    <!-- Post Section -->
                     <div class="space-y-6">
-                        <!-- Post 1 -->
                         <div class="bg-white p-4 rounded-lg shadow space-y-2">
                             <div class="flex items-center space-x-2">
                                 <img alt="User profile picture" class="w-10 h-10 rounded-full"
@@ -115,7 +114,6 @@
                             </div>
                         </div>
 
-                        <!-- Post 2 -->
                         <div class="bg-white p-4 rounded-lg shadow space-y-2">
                             <div class="flex items-center space-x-2">
                                 <img alt="User profile picture" class="w-10 h-10 rounded-full"
@@ -132,7 +130,6 @@
                             </div>
                         </div>
 
-                        <!-- Post 3 -->
                         <div class="bg-white p-4 rounded-lg shadow space-y-2">
                             <div class="flex items-center space-x-2">
                                 <img alt="User profile picture" class="w-10 h-10 rounded-full"
@@ -149,7 +146,6 @@
                             </div>
                         </div>
 
-                        <!-- Post 4 -->
                         <div class="bg-white p-4 rounded-lg shadow space-y-2">
                             <div class="flex items-center space-x-2">
                                 <img alt="User profile picture" class="w-10 h-10 rounded-full"
@@ -166,7 +162,6 @@
                             </div>
                         </div>
 
-                        <!-- Post 5 -->
                         <div class="bg-white p-4 rounded-lg shadow space-y-2">
                             <div class="flex items-center space-x-2">
                                 <img alt="User profile picture" class="w-10 h-10 rounded-full"
@@ -223,25 +218,23 @@
         </main>
     </div>
 
+    <!-- Pop-up Modal -->
+    <div id="popupModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg p-4 w-full max-w-lg relative">
+            <iframe src="write.html" class="w-full h-[300px]" frameborder="0"></iframe>
+        </div>
+    </div>
+
     <script>
-        function changeIcon(button) {
-            // Reset semua ikon sebelum mengganti yang diklik
-            resetIcons();
-
-            // Ambil elemen gambar dalam tombol yang diklik
-            let img = button.querySelector("img");
-
-            // Ubah ikon menjadi 'clicked'
-            img.src = img.getAttribute("data-clicked");
+        function openPopup() {
+            document.getElementById("popupModal").classList.remove("hidden");
         }
 
-        function resetIcons() {
-            // Kembalikan semua ikon ke default
-            document.querySelectorAll(".nav-button img, .logout-button img").forEach(img => {
-                img.src = img.getAttribute("data-default");
-            });
+        function closePopup() {
+            document.getElementById("popupModal").classList.add("hidden");
         }
     </script>
+
 </body>
 
 </html>
