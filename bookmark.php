@@ -17,27 +17,27 @@
         <aside class="w-1/5 bg-white p-6">
             <h1 class="text-3xl font-bold mb-10">SpeakUp!</h1>
             <nav class="space-y-6">
-                <a href="#"
-                    class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold bg-gray-300 rounded-lg px-4 py-3">
-                    <img src="icons/home-click.png" class="w-6 h-6" alt="Home" />
+                <a href="home.php"
+                    class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
+                    <img src="icons/home.png" class="w-6 h-6" alt="Home" />
                     <span>Home</span>
                 </a>
-                <a href="message.html"
+                <a href="message.php"
                     class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
                     <img src="icons/message.png" class="w-6 h-6" alt="Message" />
                     <span>Message</span>
                 </a>
-                <a href="community.html"
+                <a href="community.php"
                     class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
                     <img src="icons/community.png" class="w-6 h-6" alt="Community" />
                     <span>Community</span>
                 </a>
-                <a href="bookmark.html"
-                    class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
-                    <img src="icons/bookmark.png" class="w-6 h-6" alt="Bookmark" />
+                <a href="#"
+                    class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold bg-gray-300 rounded-lg px-4 py-3">
+                    <img src="icons/bookmark-click.png" class="w-6 h-6" alt="Bookmark" />
                     <span>Bookmark</span>
                 </a>
-                <a href="settings.html"
+                <a href="settings.php"
                     class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
                     <img src="icons/setting.png" class="w-6 h-6" alt="Settings" />
                     <span>Settings</span>
@@ -49,12 +49,6 @@
         <main class="flex-1 flex flex-col">
             <!-- Top Bar -->
             <header class="flex items-center justify-between bg-gray-200 p-4 shadow">
-                <!-- Kategori -->
-                <div class="flex space-x-4">
-                    <a href="#" class="px-4 py-2 bg-white rounded-md hover:bg-gray-100">For You</a>
-                    <a href="#" class="px-4 py-2 hover:bg-gray-100">Friends</a>
-                </div>
-
                 <!-- Search Bar -->
                 <div class="flex-1 relative">
                     <input type="text" placeholder="Search"
@@ -63,9 +57,9 @@
                         class="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
                 </div>
 
-                <!-- Navigasi -->
+                <!-- Navigasi Tanpa JS -->
                 <div class="flex items-center space-x-4">
-                    <a href="#" onclick="openPopup()" class="p-3 rounded-full hover:bg-gray-200">
+                    <a href="#" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="icons/note.png" width="28" height="28" />
                     </a>
                     <a href="#" class="p-3 rounded-full hover:bg-gray-200">
@@ -77,7 +71,7 @@
                     <a href="#" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="icons/profile.png" width="28" height="28" />
                     </a>
-                    <a href="login.html" class="p-3 rounded-full hover:bg-gray-200">
+                    <a href="login.php" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="icons/logout.png" width="28" height="28" />
                     </a>
                 </div>
@@ -85,7 +79,7 @@
 
             <!-- Tabs and Content -->
             <section class="flex-1 flex overflow-hidden">
-                <!-- Left Content -->
+                <!-- Left Content (Scrollable) -->
                 <article class="w-2/3 p-6 space-y-6 overflow-y-auto h-full">
                     <div class="flex items-center space-x-3 bg-white p-4 rounded-lg shadow">
                         <i class="fas fa-user text-gray-400 text-xl"></i>
@@ -96,24 +90,9 @@
                         </a>
                     </div>
 
-                    <!-- Post Section -->
+                    <!-- Post Section (Scrollable) -->
                     <div class="space-y-6">
-                        <div class="bg-white p-4 rounded-lg shadow space-y-2">
-                            <div class="flex items-center space-x-2">
-                                <img alt="User profile picture" class="w-10 h-10 rounded-full"
-                                    src="https://upload.wikimedia.org/wikipedia/commons/9/91/Indonesian_Coordinating_Minister_Luhut_Binsar_Pandjaitan_in_Washington%2C_D.C._on_4_August_2023_-_%28cropped%29.jpg" />
-                                <div>
-                                    <p class="font-bold">Nick Name</p>
-                                    <p class="text-gray-500">@username</p>
-                                </div>
-                            </div>
-                            <p>Bagaimana cara kerja AI dalam mendeteksi wajah di kamera HP?</p>
-                            <div class="flex items-center space-x-2">
-                                <button class="text-blue-500">Answer</button>
-                                <i class="fas fa-pen text-gray-400"></i>
-                            </div>
-                        </div>
-
+                        <!-- Post 2 -->
                         <div class="bg-white p-4 rounded-lg shadow space-y-2">
                             <div class="flex items-center space-x-2">
                                 <img alt="User profile picture" class="w-10 h-10 rounded-full"
@@ -130,6 +109,7 @@
                             </div>
                         </div>
 
+                        <!-- Post 3 -->
                         <div class="bg-white p-4 rounded-lg shadow space-y-2">
                             <div class="flex items-center space-x-2">
                                 <img alt="User profile picture" class="w-10 h-10 rounded-full"
@@ -140,38 +120,6 @@
                                 </div>
                             </div>
                             <p>Bagaimana cara terbaik mengelola keuangan untuk pemula?</p>
-                            <div class="flex items-center space-x-2">
-                                <button class="text-blue-500">Answer</button>
-                                <i class="fas fa-pen text-gray-400"></i>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-4 rounded-lg shadow space-y-2">
-                            <div class="flex items-center space-x-2">
-                                <img alt="User profile picture" class="w-10 h-10 rounded-full"
-                                    src="https://upload.wikimedia.org/wikipedia/commons/9/91/Indonesian_Coordinating_Minister_Luhut_Binsar_Pandjaitan_in_Washington%2C_D.C._on_4_August_2023_-_%28cropped%29.jpg" />
-                                <div>
-                                    <p class="font-bold">Nick Name</p>
-                                    <p class="text-gray-500">@username</p>
-                                </div>
-                            </div>
-                            <p>Kenapa semakin sering kita berolahraga, semakin sehat tubuh kita?</p>
-                            <div class="flex items-center space-x-2">
-                                <button class="text-blue-500">Answer</button>
-                                <i class="fas fa-pen text-gray-400"></i>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-4 rounded-lg shadow space-y-2">
-                            <div class="flex items-center space-x-2">
-                                <img alt="User profile picture" class="w-10 h-10 rounded-full"
-                                    src="https://upload.wikimedia.org/wikipedia/commons/9/91/Indonesian_Coordinating_Minister_Luhut_Binsar_Pandjaitan_in_Washington%2C_D.C._on_4_August_2023_-_%28cropped%29.jpg" />
-                                <div>
-                                    <p class="font-bold">Nick Name</p>
-                                    <p class="text-gray-500">@username</p>
-                                </div>
-                            </div>
-                            <p>Apakah ada cara mudah untuk belajar bahasa pemrograman dalam waktu singkat?</p>
                             <div class="flex items-center space-x-2">
                                 <button class="text-blue-500">Answer</button>
                                 <i class="fas fa-pen text-gray-400"></i>
@@ -217,23 +165,6 @@
             </section>
         </main>
     </div>
-
-    <!-- Pop-up Modal -->
-    <div id="popupModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
-        <div class="bg-white rounded-lg shadow-lg p-4 w-full max-w-lg relative">
-            <iframe src="write.html" class="w-full h-[300px]" frameborder="0"></iframe>
-        </div>
-    </div>
-
-    <script>
-        function openPopup() {
-            document.getElementById("popupModal").classList.remove("hidden");
-        }
-
-        function closePopup() {
-            document.getElementById("popupModal").classList.add("hidden");
-        }
-    </script>
 
 </body>
 

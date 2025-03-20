@@ -17,27 +17,27 @@
         <aside class="w-1/5 bg-white p-6">
             <h1 class="text-3xl font-bold mb-10">SpeakUp!</h1>
             <nav class="space-y-6">
-                <a href="home.html"
+                <a href="home.php"
                     class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
                     <img src="icons/home.png" class="w-6 h-6" alt="Home" />
                     <span>Home</span>
                 </a>
-                <a href="message.html"
+                <a href="message.php"
                     class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
                     <img src="icons/message.png" class="w-6 h-6" alt="Message" />
                     <span>Message</span>
                 </a>
-                <a href="community.html"
-                    class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
-                    <img src="icons/community.png" class="w-6 h-6" alt="Community" />
+                <a href="#"
+                    class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold bg-gray-300 rounded-lg px-4 py-3">
+                    <img src="icons/community-click.png" class="w-6 h-6" alt="Community" />
                     <span>Community</span>
                 </a>
-                <a href="bookmark.html"
-                    class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold bg-gray-300 rounded-lg px-4 py-3">
-                    <img src="icons/bookmark-click.png" class="w-6 h-6" alt="Bookmark" />
+                <a href="bookmark.php"
+                    class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
+                    <img src="icons/bookmark.png" class="w-6 h-6" alt="Bookmark" />
                     <span>Bookmark</span>
                 </a>
-                <a href="settings.html"
+                <a href="settings.php"
                     class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
                     <img src="icons/setting.png" class="w-6 h-6" alt="Settings" />
                     <span>Settings</span>
@@ -71,7 +71,7 @@
                     <a href="#" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="icons/profile.png" width="28" height="28" />
                     </a>
-                    <a href="login.html" class="p-3 rounded-full hover:bg-gray-200">
+                    <a href="login.php" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="icons/logout.png" width="28" height="28" />
                     </a>
                 </div>
@@ -92,38 +92,28 @@
 
                     <!-- Post Section (Scrollable) -->
                     <div class="space-y-6">
+                        <!-- Post 1 -->
+                        <div class="bg-white p-4 rounded-lg shadow space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <img alt="User profile picture" class="w-10 h-10 rounded-full"
+                                    src="https://upload.wikimedia.org/wikipedia/id/6/6c/Logo-psht.jpg" />
+                                <div>
+                                    <p class="font-bold">PSHT SINI KUMPUL BRO</p>
+                                </div>
+                            </div>
+                            <p>Kenapa kita harus olehraga bersama?</p>
+                        </div>
+
                         <!-- Post 2 -->
                         <div class="bg-white p-4 rounded-lg shadow space-y-2">
                             <div class="flex items-center space-x-2">
                                 <img alt="User profile picture" class="w-10 h-10 rounded-full"
-                                    src="https://upload.wikimedia.org/wikipedia/commons/9/91/Indonesian_Coordinating_Minister_Luhut_Binsar_Pandjaitan_in_Washington%2C_D.C._on_4_August_2023_-_%28cropped%29.jpg" />
+                                    src="https://rsud.bulelengkab.go.id/uploads/konten/32_manfaat-sayur-untuk-anak-menunjang-tumbuh-kembang-yang-optimal.jpg" />
                                 <div>
-                                    <p class="font-bold">Nick Name</p>
-                                    <p class="text-gray-500">@username</p>
+                                    <p class="font-bold">Vegan anti daging</p>
                                 </div>
                             </div>
-                            <p>Kenapa ketika kita menghirup napas dalam-dalam, rasanya lebih lega?</p>
-                            <div class="flex items-center space-x-2">
-                                <button class="text-blue-500">Answer</button>
-                                <i class="fas fa-pen text-gray-400"></i>
-                            </div>
-                        </div>
-
-                        <!-- Post 3 -->
-                        <div class="bg-white p-4 rounded-lg shadow space-y-2">
-                            <div class="flex items-center space-x-2">
-                                <img alt="User profile picture" class="w-10 h-10 rounded-full"
-                                    src="https://upload.wikimedia.org/wikipedia/commons/9/91/Indonesian_Coordinating_Minister_Luhut_Binsar_Pandjaitan_in_Washington%2C_D.C._on_4_August_2023_-_%28cropped%29.jpg" />
-                                <div>
-                                    <p class="font-bold">Nick Name</p>
-                                    <p class="text-gray-500">@username</p>
-                                </div>
-                            </div>
-                            <p>Bagaimana cara terbaik mengelola keuangan untuk pemula?</p>
-                            <div class="flex items-center space-x-2">
-                                <button class="text-blue-500">Answer</button>
-                                <i class="fas fa-pen text-gray-400"></i>
-                            </div>
+                            <p>Memerangi pemakan daging</p>
                         </div>
                     </div>
                 </article>
@@ -165,7 +155,7 @@
             </section>
         </main>
     </div>
-
+    
 </body>
 
 </html>

@@ -14,23 +14,23 @@
         <aside class="w-1/5 bg-white p-6">
             <h1 class="text-3xl font-bold mb-10">SpeakUp!</h1>
             <nav class="space-y-6">
-                <a href="home.html" class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
+                <a href="home.php" class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
                     <img src="icons/home.png" class="w-6 h-6" alt="Home" />
                     <span>Home</span>
                 </a>
-                <a href="message.html" class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
+                <a href="message.php" class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
                     <img src="icons/message.png" class="w-6 h-6" alt="Message" />
                     <span>Message</span>
                 </a>
-                <a href="community.html" class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
+                <a href="community.php" class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
                     <img src="icons/community.png" class="w-6 h-6" alt="Community" />
                     <span>Community</span>
                 </a>
-                <a href="bookmark.html" class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
+                <a href="bookmark.php" class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold">
                     <img src="icons/bookmark.png" class="w-6 h-6" alt="Bookmark" />
                     <span>Bookmark</span>
                 </a>
-                <a href="settings.html" class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold bg-gray-300 rounded-lg px-4 py-3">
+                <a href="#" class="nav-button flex items-center space-x-3 text-gray-700 hover:text-black w-full text-lg font-semibold bg-gray-300 rounded-lg px-4 py-3">
                     <img src="icons/setting-click.png" class="w-6 h-6" alt="Settings" />
                     <span>Settings</span>
                 </a>
@@ -61,7 +61,7 @@
                     <a href="#" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="icons/profile.png" width="28" height="28" />
                     </a>
-                    <a href="login.html" class="p-3 rounded-full hover:bg-gray-200">
+                    <a href="login.php" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="icons/logout.png" width="28" height="28" />
                     </a>
                 </div>

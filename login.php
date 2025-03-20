@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,24 +29,24 @@
     <div class="w-full lg:w-1/2 flex items-center justify-center">
         <div class="glassmorphism w-3/4 max-w-md">
             <h1 class="text-4xl font-bold text-white text-center mb-8">Login</h1>
-            <form>
+            <form action="proses-login.php" method="post">
                 <div class="mb-4">
                     <label for="email" class="block text-sm font-medium text-white">Email address</label>
-                    <input type="email" id="email" placeholder="example@gmail.com" 
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com" 
                         class="mt-1 block w-full px-3 py-2 bg-transparent border border-white text-white rounded-md shadow-sm 
                         focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                 </div>
                 <div class="mb-6">
                     <label for="password" class="block text-sm font-medium text-white">Password</label>
-                    <input type="password" id="password" placeholder="Enter your password" 
+                    <input type="password" id="password" name="password" placeholder="Enter your password" 
                         class="mt-1 block w-full px-3 py-2 bg-transparent border border-white text-white rounded-md shadow-sm 
                         focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                 </div>
                 <div class="mb-4">
                     <!-- Login button -->
-                    <button type="button" onclick="window.location.href='index.html'" class="w-full py-2 px-4 bg-black text-white font-semibold rounded-md shadow-sm 
+                    <button type="submit" class="w-full py-2 px-4 bg-black text-white font-semibold rounded-md shadow-sm 
                             hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                        <a href="index.html">Login</a>
+                        Login   
                     </button>
                 </div>
                 <div class="mb-4">

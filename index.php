@@ -10,7 +10,7 @@
     <div class="text-center text-white">
         <h1 class="text-4xl font-bold mb-6">Welcome to SpeakUp!</h1>
         <p class="mb-6">nanti ini di isi sesuatu aja</p>
-        <a href="home.html" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold shadow-md hover:bg-gray-200">
+        <a href="login.php" class="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold shadow-md hover:bg-gray-200">
             Enter SpeakUp!
         </a>
     </div>
