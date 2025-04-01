@@ -39,7 +39,7 @@
                     </button>
                 </div>
                 <div class="mb-4">
-                    <button type="button" onclick="window.location.href='login.html'" class="w-full py-2 px-4 bg-gray-500 text-white font-semibold rounded-md shadow-sm 
+                    <button type="button" onclick="window.location.href='login.php'" class="w-full py-2 px-4 bg-gray-500 text-white font-semibold rounded-md shadow-sm 
                             hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Back to Login
                     </button>

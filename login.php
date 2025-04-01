@@ -51,14 +51,14 @@ session_start();
                 </div>
                 <div class="mb-4">
                     <!-- Sign Up button -->
-                    <button type="button" onclick="window.location.href='signup.html'" class="w-full py-2 px-4 bg-gray-500 text-white font-semibold rounded-md shadow-sm 
+                    <button type="button" onclick="window.location.href='signup.php'" class="w-full py-2 px-4 bg-gray-500 text-white font-semibold rounded-md shadow-sm 
                             hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Sign Up
                     </button>
                 </div>
                 <div class="mb-4">
                     <!-- Forgot Password button -->
-                    <button type="button" onclick="window.location.href='forgot-password.html'" class="w-full py-2 px-4 border border-white text-white font-semibold rounded-md shadow-sm 
+                    <button type="button" onclick="window.location.href='forgot-password.php'" class="w-full py-2 px-4 border border-white text-white font-semibold rounded-md shadow-sm 
                             hover:bg-gray-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                         Forgot Password?
                     </button>

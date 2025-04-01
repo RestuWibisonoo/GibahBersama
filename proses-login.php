@@ -2,16 +2,44 @@
 session_start();
 include "config/koneksi.php";
 
-$email=$_POST['email'];
-$password=$_POST['password'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $email = mysqli_real_escape_string($koneksi, $_POST['email']);
+    $password = $_POST['password'];
 
-$query=mysqli_query($koneksi,"SELECT * FROM users WHERE email='$email' AND password='$password'");
+    // Cek apakah email terdaftar
+    $stmt = $koneksi->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-if (mysqli_num_rows($query)>0) {
-    $_SESSION['login']='admin' ;
-    echo "<script>alert('berhasil login'); location.href='home.php'</script>";
-} else {
-    echo "<script>alert('login gagal'); location.href='login.php'</script>";
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+        
+        // Verifikasi password (jika menggunakan password_hash())
+        // if (password_verify($password, $user['password'])) {
+        
+        // Jika masih menggunakan plaintext (tidak direkomendasikan)
+        if ($password === $user['password']) {
+            // Set session
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['email'] = $user['email'];
+            $_SESSION['role'] = $user['role'];
+            $_SESSION['logged_in'] = true;
+
+            // Redirect ke halaman home
+            header("Location: home.php");
+            exit();
+        }
+    }
+
+    // Jika gagal login
+    $_SESSION['login_error'] = "Email atau password salah!";
+    header("Location: login.php");
+    exit();
 }
 
+// Jika akses langsung ke file
+header("Location: login.php");
+exit();
 ?>
