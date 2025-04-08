@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION['username'])) {
+    header("Location: login.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,8 +88,8 @@
                     <a href="#" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="icons/profile.png" width="28" height="28" />
                     </a>
-                    <a href="login.php" class="p-3 rounded-full hover:bg-gray-200">
-                        <img src="icons/logout.png" width="28" height="28" />
+                    <a href="logout.php" class="p-3 rounded-full hover:bg-gray-200">
+                        <img src="icons/logout.png" width="28" height="28" alt="Logout" />
                     </a>
                 </div>
             </header>
