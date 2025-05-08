@@ -1,16 +1,24 @@
 <?php
-$host = "localhost"; // Server database (biasanya "localhost")
-$user = "root"; // Username database (default: "root" jika pakai XAMPP)
-$pass = ""; // Password database (kosong jika pakai XAMPP)
-$db   = "db_speakup"; // Ganti dengan nama database Anda
+$host = 'localhost';
+$db   = 'db_speakup'; // Ganti dengan nama database Anda
+$user = 'root';       // Ganti dengan username database Anda
+$pass = '';           // Ganti dengan password database Anda
 
-// Buat koneksi
-$koneksi = mysqli_connect($host, $user, $pass, $db);
+try {
+    // Data Source Name (DSN)
+    $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
 
-// Periksa koneksi
-// if (!$koneksi) {
-//     die("Koneksi ke database gagal: " . mysqli_connect_error());
-// } else {
-//     echo "Koneksi berhasil!";
-// }
-// ?>
+    // Buat instance PDO
+    $pdo = new PDO($dsn, $user, $pass);
+
+    // Set atribut error mode agar lempar exception saat error
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Optional: Matikan emulasi prepared statement untuk keamanan ekstra
+    $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+
+    // echo "Koneksi berhasil!";
+} catch (PDOException $e) {
+    die("Koneksi gagal: " . $e->getMessage());
+}
+?>
