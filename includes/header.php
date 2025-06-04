@@ -78,7 +78,7 @@
                     <a href="#" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="../assets/img/icons/outline/globe.png" width="28" height="28" />
                     </a>
-                    <a href="#" class="p-3 rounded-full hover:bg-gray-200">
+                    <a href="../includes/profile.php" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="../assets/img/icons/outline/profile.png" width="28" height="28" />
                     </a>
                     <a href="../index.php" class="p-3 rounded-full hover:bg-gray-200">
