@@ -7,20 +7,20 @@ if (!isset($_SESSION['username'])) {
 
 include '../config/koneksi.php';
 
-// Ambil data pengguna saat ini
+// Get current user data
 $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
 $stmt->bindParam(':username', $_SESSION['username'], PDO::PARAM_STR);
 $stmt->execute();
 $current_user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-// Ambil semua postingan
+// Get all posts with user data
 $posts_sql = "SELECT posts.*, users.username, users.display_name, users.profile_pic 
               FROM posts 
               JOIN users ON posts.user_id = users.id 
               ORDER BY posts.created_at DESC";
 $posts_result = $pdo->query($posts_sql);
 
-// Ambil 5 trending post
+// Get trending posts
 $trending_stmt = $pdo->prepare("SELECT posts.*, users.username, users.display_name, users.profile_pic
                                 FROM posts 
                                 JOIN users ON posts.user_id = users.id 
@@ -35,9 +35,11 @@ $trending_posts = $trending_stmt->fetchAll(PDO::FETCH_ASSOC);
     <!-- Main Content -->
     <div class="w-2/3 p-6 space-y-6">
         <div class="main-content bg-white-200 p-6 rounded-lg shadow overflow-y-auto max-h-[calc(100vh-150px)]">
+            <!-- Post Creation Box -->
             <div class="flex items-center space-x-3 bg-white p-4 rounded-lg shadow">
-                <img src="<?= htmlspecialchars($current_user['profile_pic'] ?? 'https://placehold.co/40x40') ?>"
-                    class="w-10 h-10 rounded-full" alt="User profile" />
+                <img src="../assets/img/profile_pict/<?= htmlspecialchars($current_user['profile_pic'] ?? 'default.jpg') ?>"
+                    class="w-10 h-10 rounded-full" alt="User profile"
+                    onerror="this.onerror=null;this.src='https://placehold.co/40x40'" />
                 <input type="text" placeholder="Do You Have a Question?"
                     class="flex-1 border-none focus:outline-none text-lg" onclick="openPopup()" readonly />
                 <a href="#" class="p-2 rounded-full hover:bg-gray-200" onclick="openPopup()">
@@ -45,12 +47,14 @@ $trending_posts = $trending_stmt->fetchAll(PDO::FETCH_ASSOC);
                 </a>
             </div>
 
+            <!-- Posts Feed -->
             <div class="space-y-6 mt-4">
                 <?php while ($post = $posts_result->fetch(PDO::FETCH_ASSOC)): ?>
                     <div class="bg-white p-4 rounded-lg shadow space-y-2">
                         <div class="flex items-center space-x-2">
                             <img alt="User profile picture" class="w-10 h-10 rounded-full"
-                                src="<?= htmlspecialchars($post['profile_pic'] ?? 'https://placehold.co/40x40') ?>" />
+                                src="../assets/img/profile_pict/<?= htmlspecialchars($post['profile_pic'] ?? 'default.jpg') ?>"
+                                onerror="this.onerror=null;this.src='https://placehold.co/40x40'" />
                             <div>
                                 <p class="font-bold"><?= htmlspecialchars($post['display_name'] ?? 'User') ?></p>
                                 <p class="text-gray-500">@<?= htmlspecialchars($post['username']) ?></p>
@@ -64,7 +68,7 @@ $trending_posts = $trending_stmt->fetchAll(PDO::FETCH_ASSOC);
 
                         <?php if (!empty($post['image'])): ?>
                             <div class="mt-2">
-                                <img src="uploads/<?= htmlspecialchars($post['image']) ?>" alt="Post image"
+                                <img src="../uploads/posts/<?= htmlspecialchars($post['image']) ?>" alt="Post image"
                                     class="post-image rounded-lg" />
                             </div>
                         <?php endif; ?>
@@ -100,7 +104,7 @@ $trending_posts = $trending_stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </div>
 
-<!-- Unified Popup Modal -->
+<!-- Popup Modal -->
 <div id="popupModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden z-50">
     <div class="bg-white rounded-lg shadow-lg w-full max-w-2xl relative">
         <button onclick="closePopup()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
@@ -132,11 +136,9 @@ $trending_posts = $trending_stmt->fetchAll(PDO::FETCH_ASSOC);
         document.getElementById("popupIframe").src = '';
     }
 
-    // Handle message dari iframe
     window.addEventListener('message', function (event) {
         if (event.data.type === 'ANSWER_POSTED' && event.data.success) {
             closePopup();
-
             const answersContainer = document.getElementById("answers-container");
             if (answersContainer && event.data.post_id) {
                 fetch(`get_answers.php?post_id=${event.data.post_id}`)
@@ -153,3 +155,5 @@ $trending_posts = $trending_stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     });
 </script>
+
+<?php include('../includes/footer.php'); ?>

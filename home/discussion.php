@@ -1,129 +1,145 @@
 <?php
 session_start();
+require_once '../config/koneksi.php';
 
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
+// Redirect ke error.php jika post_id tidak valid
+if (!isset($_GET['post_id']) || !is_numeric($_GET['post_id'])) {
+    header("Location: error.php?code=400&message=ID postingan tidak valid");
     exit();
 }
 
-include '../config/koneksi.php';
+$post_id = (int)$_GET['post_id'];
 
-if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-    header("Location: home.php");
+try {
+    // Ambil data post dan user pembuat
+    $stmt = $pdo->prepare("
+        SELECT posts.*, users.username, users.display_name, users.profile_pic 
+        FROM posts 
+        JOIN users ON posts.user_id = users.id 
+        WHERE posts.id = :post_id
+    ");
+    $stmt->execute(['post_id' => $post_id]);
+    $post = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$post) {
+        header("Location: error.php?code=404&message=Postingan tidak ditemukan");
+        exit();
+    }
+
+    // Update view count
+    $update_stmt = $pdo->prepare("UPDATE posts SET views = views + 1 WHERE id = :post_id");
+    $update_stmt->execute(['post_id' => $post_id]);
+
+    // Ambil semua jawaban untuk post ini
+    $stmt = $pdo->prepare("
+        SELECT answers.*, users.username, users.display_name, users.profile_pic 
+        FROM answers 
+        JOIN users ON answers.user_id = users.id 
+        WHERE answers.post_id = :post_id
+        ORDER BY answers.created_at ASC
+    ");
+    $stmt->execute(['post_id' => $post_id]);
+    $answers = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    error_log("Database error: " . $e->getMessage());
+    header("Location: error.php?code=500&message=Terjadi kesalahan pada server");
     exit();
 }
 
-$post_id = (int) $_GET['id'];
-
-// Ambil detail post
-$post_stmt = $pdo->prepare("SELECT posts.*, users.username, users.display_name, users.profile_pic 
-                            FROM posts 
-                            JOIN users ON posts.user_id = users.id 
-                            WHERE posts.id = :id");
-$post_stmt->bindParam(':id', $post_id, PDO::PARAM_INT);
-$post_stmt->execute();
-$post = $post_stmt->fetch(PDO::FETCH_ASSOC);
-
-if (!$post) {
-    header("Location: home.php");
-    exit();
-}
-
-// Tambah view count
-$update_views_stmt = $pdo->prepare("UPDATE posts SET views = views + 1 WHERE id = :post_id");
-$update_views_stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
-$update_views_stmt->execute();
-
-// Ambil semua jawaban
-$answers_stmt = $pdo->prepare("SELECT answers.*, users.username, users.display_name, users.profile_pic
-                                FROM answers 
-                                JOIN users ON answers.user_id = users.id 
-                                WHERE answers.post_id = :post_id 
-                                ORDER BY answers.created_at ASC");
-$answers_stmt->bindParam(':post_id', $post_id, PDO::PARAM_INT);
-$answers_stmt->execute();
-
-// Trending post
-$trending_stmt = $pdo->prepare("SELECT * FROM posts ORDER BY views DESC LIMIT 5");
-$trending_stmt->execute();
-$trending_posts = $trending_stmt->fetchAll(PDO::FETCH_ASSOC);
-
-$active_page = ''; // or set to something like 'detail'
+$page_title = htmlspecialchars($post['title']) . " - Diskusi";
 include('../includes/header.php');
 ?>
 
 <!-- Main Content -->
 <div class="flex-1 flex p-4 space-x-4">
     <!-- Questions and Replies -->
-    <div class="w-2/3 bg-white p-4 rounded-lg shadow space-y-4">
+    <div class="w-2/3 bg-white p-6 rounded-lg shadow space-y-4">
         <!-- Post Content -->
         <div class="border-b border-gray-300 pb-4">
-            <div class="flex items-center space-x-2 mb-2">
-                <img src="<?= htmlspecialchars($post['profile_pic'] ?? 'https://placehold.co/40x40') ?>" class="w-10 h-10 rounded-full">
+            <div class="flex items-center space-x-3 mb-2">
+                <img src="../assets/img/profile_pict/<?= htmlspecialchars($current_user['profile_pic'] ?? 'default.jpg') ?>"
+                    class="w-10 h-10 rounded-full" alt="User profile"
+                    onerror="this.onerror=null;this.src='https://placehold.co/40x40'" />
                 <div>
                     <p class="font-bold"><?= htmlspecialchars($post['display_name']) ?></p>
-                    <p class="text-gray-500">@<?= htmlspecialchars($post['username']) ?></p>
-                    <p class="text-gray-700 font-medium"><?= htmlspecialchars($post['title']) ?></p>
+                    <p class="text-sm text-gray-500">@<?= htmlspecialchars($post['username']) ?></p>
                 </div>
             </div>
-            <p class="mb-4"><?= nl2br(htmlspecialchars($post['content'])) ?></p>
+            <h1 class="text-xl font-semibold"><?= htmlspecialchars($post['title']) ?></h1>
+            <p class="text-gray-700 mt-2"><?= nl2br(htmlspecialchars($post['content'])) ?></p>
             <?php if (!empty($post['image'])): ?>
-            <div class="mt-2">
-                <img src="uploads/<?= htmlspecialchars($post['image']) ?>" alt="Post image" class="rounded-lg">
-            </div>
+                <img src="../uploads/<?= htmlspecialchars($post['image']) ?>" 
+                     alt="Post Image" 
+                     class="rounded-lg mt-3 max-w-full h-auto">
             <?php endif; ?>
-            <button class="flex items-center space-x-1 text-purple-500 mt-2">
-                <i class="fas fa-pen"></i>
-                <span>Answer</span>
-            </button>
         </div>
 
-        <!-- Answers Section -->
-        <div class="border-b border-gray-300 pb-4 space-y-4">
-            <?php if ($answers_stmt->rowCount() > 0): ?>
-                <?php while ($answer = $answers_stmt->fetch(PDO::FETCH_ASSOC)): ?>
-                <div>
-                    <div class="flex items-center space-x-2 mb-1">
-                        <img src="<?= htmlspecialchars($answer['profile_pic'] ?? 'https://placehold.co/40x40') ?>" class="w-10 h-10 rounded-full">
-                        <div>
-                            <p class="font-bold"><?= htmlspecialchars($answer['display_name']) ?></p>
-                            <p class="text-gray-500">@<?= htmlspecialchars($answer['username']) ?></p>
+        <!-- Jawaban -->
+        <div class="space-y-6">
+            <h2 class="text-lg font-semibold">Jawaban (<?= count($answers) ?>)</h2>
+            <?php if (count($answers) > 0): ?>
+                <?php foreach ($answers as $answer): ?>
+                    <div class="border-t pt-4">
+                        <div class="flex items-center space-x-3 mb-2">
+                <img src="../assets/img/profile_pict/<?= htmlspecialchars($current_user['profile_pic'] ?? 'default.jpg') ?>"
+                    class="w-10 h-10 rounded-full" alt="User profile"
+                    onerror="this.onerror=null;this.src='https://placehold.co/40x40'" />
+                            <div>
+                                <p class="font-semibold"><?= htmlspecialchars($answer['display_name']) ?></p>
+                                <p class="text-sm text-gray-500">@<?= htmlspecialchars($answer['username']) ?> - 
+                                    <?= date('d M Y H:i', strtotime($answer['created_at'])) ?></p>
+                            </div>
                         </div>
+                        <p class="text-gray-800"><?= nl2br(htmlspecialchars($answer['content'])) ?></p>
                     </div>
-                    <p><?= nl2br(htmlspecialchars($answer['content'])) ?></p>
-                </div>
-                <?php endwhile; ?>
+                <?php endforeach; ?>
             <?php else: ?>
-                <p class="text-gray-500">Belum ada jawaban untuk pertanyaan ini.</p>
+                <p class="text-gray-500">Belum ada jawaban. Jadilah yang pertama menjawab!</p>
             <?php endif; ?>
         </div>
 
-        <!-- Answer Form -->
-        <div class="mt-4">
-            <form action="proses_answer.php" method="POST">
-                <textarea name="content" rows="4" class="w-full p-2 border rounded-lg" placeholder="Type your answer..." required></textarea>
-                <input type="hidden" name="post_id" value="<?= htmlspecialchars($post['id']) ?>">
-                <button type="submit" class="mt-2 bg-blue-500 text-white p-2 rounded-lg">Submit Answer</button>
-            </form>
+        <!-- Form Jawaban -->
+        <div class="border-t pt-6">
+            <?php if (isset($_SESSION['user_id'])): ?>
+                <form action="proses_answer.php" method="POST" class="space-y-4">
+                    <input type="hidden" name="post_id" value="<?= $post_id ?>">
+                    <textarea name="content" rows="4" class="w-full border rounded p-2" 
+                              placeholder="Tulis jawaban kamu..." required></textarea>
+                    <button type="submit" class="bg-purple-600 text-white px-4 py-2 rounded hover:bg-purple-700">
+                        Kirim Jawaban
+                    </button>
+                </form>
+            <?php else: ?>
+                <p class="text-gray-600">
+                    Silakan <a href="../auth/login.php" class="text-purple-600 hover:underline">login</a> 
+                    untuk menjawab diskusi ini.
+                </p>
+            <?php endif; ?>
         </div>
     </div>
 
-    <!-- Trending Sidebar -->
+    <!-- Trending Section (opsional) -->
     <div class="w-1/3 space-y-4">
-        <div class="bg-white p-4 rounded-lg shadow">
-            <h2 class="font-bold mb-4">Trending</h2>
-            <div class="space-y-2">
-                <?php foreach ($trending_posts as $tpost): ?>
-                <div>
-                    <p class="font-bold"><?= htmlspecialchars($tpost['title']) ?></p>
-                    <p class="text-gray-500"><?= (int) $tpost['views'] ?> views</p>
-                </div>
-                <?php endforeach; ?>
-            </div>
+        <div class="bg-white rounded-lg shadow p-4">
+            <h3 class="text-lg font-semibold mb-2">Trending</h3>
+            <?php
+            try {
+                $trending_stmt = $pdo->query("SELECT id, title FROM posts ORDER BY views DESC LIMIT 5");
+                while ($trend = $trending_stmt->fetch(PDO::FETCH_ASSOC)):
+            ?>
+                <a href="discussion.php?post_id=<?= $trend['id'] ?>" 
+                   class="block text-purple-600 hover:underline mb-1">
+                    <?= htmlspecialchars($trend['title']) ?>
+                </a>
+            <?php 
+                endwhile;
+            } catch (PDOException $e) {
+                error_log("Trending query error: " . $e->getMessage());
+                echo "<p class='text-gray-500'>Gagal memuat trending</p>";
+            }
+            ?>
         </div>
     </div>
 </div>
 
 <?php include('../includes/footer.php'); ?>
-</body>
-</html>

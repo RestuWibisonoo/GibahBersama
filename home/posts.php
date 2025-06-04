@@ -84,8 +84,9 @@ try {
     <form method="POST" action="proses_posts.php" class="absolute inset-0 bg-white p-6 flex flex-col">
         <div class="flex justify-between items-center mb-4">
             <div class="flex items-center space-x-4">
-                <img alt="User avatar" class="rounded-full" height="40"
-                    src="<?= htmlspecialchars($user['profile_pic'] ?? 'https://placehold.co/40x40') ?>" width="40" />
+                <img src="../assets/img/profile_pict/<?= htmlspecialchars($current_user['profile_pic'] ?? 'default.jpg') ?>"
+                    class="w-10 h-10 rounded-full" alt="User profile"
+                    onerror="this.onerror=null;this.src='https://placehold.co/40x40'" />
                 <h2 class="text-lg font-semibold">Apa Yang Ingin Anda Diskusikan?</h2>
             </div>
         </div>
@@ -126,38 +127,38 @@ try {
     </form>
 
     <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('postForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const originalBtnText = submitBtn.innerHTML;
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('postForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const originalBtnText = submitBtn.innerHTML;
 
-    form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = 'Posting <span class="btn-loading"></span>';
+            form.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = 'Posting <span class="btn-loading"></span>';
 
-        try {
-            const response = await fetch('proses_posts.php', {
-                method: 'POST',
-                body: new FormData(form)
+                try {
+                    const response = await fetch('proses_posts.php', {
+                        method: 'POST',
+                        body: new FormData(form)
+                    });
+                    const result = await response.json();
+
+                    if (result.status === 'success') {
+                        window.parent.postMessage({ type: 'POST_CREATED', success: true }, '*');
+                    } else {
+                        alert(result.message || 'Gagal menyimpan postingan');
+                        submitBtn.innerHTML = originalBtnText;
+                        submitBtn.disabled = false;
+                    }
+                } catch (error) {
+                    alert('Terjadi kesalahan jaringan');
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.disabled = false;
+                }
             });
-            const result = await response.json();
-
-            if (result.status === 'success') {
-                window.parent.postMessage({ type: 'POST_CREATED', success: true }, '*');
-            } else {
-                alert(result.message || 'Gagal menyimpan postingan');
-                submitBtn.innerHTML = originalBtnText;
-                submitBtn.disabled = false;
-            }
-        } catch (error) {
-            alert('Terjadi kesalahan jaringan');
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-        }
-    });
-});
-</script>
+        });
+    </script>
 
 
 </body>

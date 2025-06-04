@@ -81,7 +81,7 @@
                     <a href="#" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="../assets/img/icons/outline/profile.png" width="28" height="28" />
                     </a>
-                    <a href="../auth/logout.php" class="p-3 rounded-full hover:bg-gray-200">
+                    <a href="../index.php" class="p-3 rounded-full hover:bg-gray-200">
                         <img src="../assets/img/icons/outline/logout.png" width="28" height="28" alt="Logout" />
                     </a>
                 </div>
