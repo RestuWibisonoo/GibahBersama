@@ -16,8 +16,6 @@ $current_user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 <?php include('../includes/header.php'); ?>
 
-<!-- Hapus sidebar dari sini -->
-
 <!-- Main Profile Section -->
 <main class="flex-1 image p-10">
     <div class="bg-white p-6 rounded-lg shadow max-w-3xl mx-auto">
