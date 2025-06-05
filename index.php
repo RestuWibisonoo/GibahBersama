@@ -251,17 +251,17 @@
                             <span id="typingText" class="typing-cursor font-mono"></span>
                         </h1>
                         <p class="text-xl md:text-2xl text-blue-100 font-light">
-                            Forum diskusi modern untuk developer Indonesia
+                            Forum diskusi dengan positif dan saling berbagi pengalaman bersama
                         </p>
                     </div>
 
                     <!-- CTA Section -->
                     <div class="glassmorphism p-8 max-w-2xl mx-auto mb-12">
                         <h2 class="text-2xl font-semibold text-white mb-4">
-                            Bergabung dengan ribuan developer lainnya
+                            Bergabung dengan ribuan pengguna lainnya
                         </h2>
                         <p class="text-blue-100 mb-6">
-                            Diskusikan kode, berbagi pengalaman, dan bangun koneksi dengan komunitas developer terbaik
+                            Diskusikan pertanyaan, berbagi pengalaman, dan bangun koneksi dengan komunitas terbaik
                         </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center">
                             <button onclick="window.location.href='home/home.php'"

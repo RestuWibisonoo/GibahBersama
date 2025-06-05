@@ -9,56 +9,55 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['current_password'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         $current_password = $_POST['current_password'];
         $new_password = $_POST['new_password'];
         $confirm_password = $_POST['confirm_password'];
 
-        // Validasi password baru
+        // Validasi
         if ($new_password !== $confirm_password) {
-            $_SESSION['error_message'] = "Password baru dan konfirmasi password tidak cocok.";
-            header("Location: setting.php?tab=password");
+            $_SESSION['error_message'] = "New passwords don't match";
+            header("Location: settings.php?tab=password");
             exit();
         }
 
         if (strlen($new_password) < 8) {
-            $_SESSION['error_message'] = "Password harus minimal 8 karakter.";
-            header("Location: setting.php?tab=password");
+            $_SESSION['error_message'] = "Password must be at least 8 characters";
+            header("Location: settings.php?tab=password");
             exit();
         }
 
         // Verifikasi password saat ini
-        $stmt = $pdo->prepare("SELECT password FROM users WHERE id = :user_id");
-        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-        $stmt->execute();
+        $stmt = $pdo->prepare("SELECT password FROM users WHERE id = :user_id AND status = 'active'");
+        $stmt->execute([':user_id' => $user_id]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if (!password_verify($current_password, $user['password'])) {
-            $_SESSION['error_message'] = "Password saat ini salah.";
-            header("Location: setting.php?tab=password");
+        if (!$user || !password_verify($current_password, $user['password'])) {
+            $_SESSION['error_message'] = "Current password is incorrect";
+            header("Location: settings.php?tab=password");
             exit();
         }
 
-        // Update password baru
+        // Update password
         $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
         $stmt = $pdo->prepare("UPDATE users SET password = :password WHERE id = :user_id");
-        $stmt->bindParam(':password', $hashed_password, PDO::PARAM_STR);
-        $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
-        $stmt->execute();
+        $stmt->execute([
+            ':password' => $hashed_password,
+            ':user_id' => $user_id
+        ]);
 
-        $_SESSION['success_message'] = "Password berhasil diubah!";
-        header("Location: setting.php?tab=password");
+        $_SESSION['success_message'] = "Password changed successfully!";
+        header("Location: settings.php?tab=password");
         exit();
 
     } catch (PDOException $e) {
-        $_SESSION['error_message'] = "Terjadi kesalahan: " . $e->getMessage();
-        header("Location: setting.php?tab=password");
+        $_SESSION['error_message'] = "Database error: " . $e->getMessage();
+        header("Location: settings.php?tab=password");
         exit();
     }
 }
 
-// Jika akses langsung ke file ini tanpa POST request
-header("Location: setting.php");
+header("Location: settings.php");
 exit();
 ?>
