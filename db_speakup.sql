@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Bulan Mei 2025 pada 08.28
+-- Waktu pembuatan: 05 Jun 2025 pada 09.22
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -41,27 +41,78 @@ CREATE TABLE `answers` (
 --
 
 INSERT INTO `answers` (`id`, `post_id`, `user_id`, `content`, `created_at`, `updated_at`) VALUES
-(1, 14, 3, 'asdas', '2025-05-04 04:12:53', '2025-05-04 04:12:53'),
-(2, 13, 3, 'asd', '2025-05-04 04:14:19', '2025-05-04 04:14:19'),
-(3, 13, 3, 'asdas', '2025-05-04 04:17:17', '2025-05-04 04:17:17'),
-(4, 3, 3, 'apakah masuk trending', '2025-05-04 04:17:31', '2025-05-04 04:17:31'),
-(5, 3, 3, 'xac', '2025-05-04 04:17:36', '2025-05-04 04:17:36'),
-(6, 14, 4, 'asda', '2025-05-04 04:35:25', '2025-05-04 04:35:25'),
-(7, 2, 4, 'asdada', '2025-05-04 04:35:39', '2025-05-04 04:35:39'),
-(10, 15, 4, 'halah boong', '2025-05-04 08:21:22', '2025-05-04 08:21:22'),
-(11, 12, 4, 'boong', '2025-05-04 08:21:37', '2025-05-04 08:21:37'),
-(12, 12, 4, 'asdads', '2025-05-04 08:21:43', '2025-05-04 08:21:43'),
-(13, 12, 4, 'asda', '2025-05-04 08:21:46', '2025-05-04 08:21:46'),
-(14, 12, 4, 'bedsuibcu', '2025-05-04 08:21:48', '2025-05-04 08:21:48'),
-(15, 15, 4, 'asdas', '2025-05-04 08:22:52', '2025-05-04 08:22:52'),
-(16, 15, 4, 'asjdbajbdajbcjda', '2025-05-04 08:33:15', '2025-05-04 08:33:15'),
-(19, 16, 7, 'jajnsaj', '2025-05-04 09:01:47', '2025-05-04 09:01:47'),
-(20, 16, 7, 'apa deh ga tau', '2025-05-04 09:05:30', '2025-05-04 09:05:30'),
-(21, 16, 7, 'asd', '2025-05-04 09:08:12', '2025-05-04 09:08:12'),
-(22, 17, 7, 'sumpah udah muak', '2025-05-04 09:08:31', '2025-05-04 09:08:31'),
-(23, 20, 7, 'apa tuh', '2025-05-04 09:21:24', '2025-05-04 09:21:24'),
-(24, 22, 7, 'asdas', '2025-05-04 09:33:03', '2025-05-04 09:33:03'),
-(25, 25, 7, 'halo', '2025-05-04 09:36:44', '2025-05-04 09:36:44');
+(30, 37, 9, 'halo bro', '2025-05-28 06:00:31', '2025-05-28 06:00:31'),
+(31, 37, 9, 'halo', '2025-05-28 06:24:02', '2025-05-28 06:24:02'),
+(32, 37, 9, 'halo', '2025-05-28 06:24:43', '2025-05-28 06:24:43'),
+(33, 37, 9, 'test', '2025-05-28 06:30:40', '2025-05-28 06:30:40'),
+(34, 37, 10, 'tyugweugsfadhbfdsagsfdaguiyhbsdf', '2025-05-28 06:58:42', '2025-05-28 06:58:42'),
+(35, 37, 10, 'tyugweugsfadhbfdsagsfdaguiyhbsdf', '2025-05-28 06:58:45', '2025-05-28 06:58:45'),
+(36, 38, 10, 'asdsda', '2025-05-28 06:59:09', '2025-05-28 06:59:09'),
+(37, 40, 11, 'enggak', '2025-05-28 08:45:25', '2025-05-28 08:45:25'),
+(38, 40, 9, 'iya asik', '2025-05-28 08:46:04', '2025-05-28 08:46:04'),
+(39, 44, 10, 'asdsadasd', '2025-06-04 16:51:58', '2025-06-04 16:51:58'),
+(40, 44, 10, 'awokawokawokawokawokawkoawkoawok', '2025-06-04 17:45:42', '2025-06-04 17:45:42'),
+(41, 49, 10, 'sgdfsdgsfd', '2025-06-04 19:34:32', '2025-06-04 19:34:32'),
+(42, 49, 10, 'jaloasdsad', '2025-06-04 19:34:41', '2025-06-04 19:34:41'),
+(43, 49, 10, 'dsfadsfdfadfsadfdfas', '2025-06-04 19:45:57', '2025-06-04 19:45:57'),
+(44, 49, 10, 'halooo', '2025-06-04 19:46:01', '2025-06-04 19:46:01'),
+(45, 50, 10, 'afds', '2025-06-04 19:46:28', '2025-06-04 19:46:28'),
+(46, 50, 10, 'dsafadfs', '2025-06-04 19:48:06', '2025-06-04 19:48:06'),
+(47, 50, 10, 'asdfaf', '2025-06-04 19:55:55', '2025-06-04 19:55:55'),
+(48, 50, 10, 'sdafafs', '2025-06-04 19:56:03', '2025-06-04 19:56:03'),
+(49, 52, 10, 'asdasd', '2025-06-04 19:58:24', '2025-06-04 19:58:24'),
+(50, 52, 10, 'asfd', '2025-06-04 19:58:49', '2025-06-04 19:58:49'),
+(51, 52, 10, 'asd', '2025-06-04 19:58:57', '2025-06-04 19:58:57'),
+(52, 50, 10, 'asdffasd', '2025-06-04 19:59:13', '2025-06-04 19:59:13'),
+(56, 52, 10, 'asddas', '2025-06-04 20:02:52', '2025-06-04 20:02:52'),
+(57, 52, 10, '123', '2025-06-04 20:11:09', '2025-06-04 20:11:09'),
+(58, 52, 10, 'asdf', '2025-06-04 20:20:32', '2025-06-04 20:20:32'),
+(59, 52, 10, '123', '2025-06-04 20:20:40', '2025-06-04 20:20:40'),
+(60, 52, 10, 'asdadssa', '2025-06-04 20:24:45', '2025-06-04 20:24:45'),
+(61, 52, 10, 'asdffsda', '2025-06-04 20:25:41', '2025-06-04 20:25:41'),
+(62, 52, 10, 'asd', '2025-06-04 20:36:50', '2025-06-04 20:36:50'),
+(63, 53, 10, '123', '2025-06-04 20:48:43', '2025-06-04 20:48:43'),
+(64, 53, 10, 'afsd', '2025-06-04 20:51:56', '2025-06-04 20:51:56'),
+(65, 53, 10, 'asdsad', '2025-06-04 20:53:06', '2025-06-04 20:53:06'),
+(66, 53, 10, 'asdfsdaf', '2025-06-04 20:59:21', '2025-06-04 20:59:21'),
+(67, 53, 10, '123', '2025-06-04 20:59:27', '2025-06-04 20:59:27'),
+(68, 53, 10, '123', '2025-06-04 20:59:35', '2025-06-04 20:59:35'),
+(69, 53, 10, '123333', '2025-06-04 21:00:20', '2025-06-04 21:00:20'),
+(70, 53, 10, 'asdads', '2025-06-04 21:02:24', '2025-06-04 21:02:24'),
+(71, 53, 10, 'asdasdasdassaads1231321123123123', '2025-06-04 21:02:39', '2025-06-04 21:02:39'),
+(72, 53, 10, 'adsasdads', '2025-06-04 21:02:48', '2025-06-04 21:02:48'),
+(73, 53, 10, 'asdads', '2025-06-04 21:03:01', '2025-06-04 21:03:01'),
+(74, 53, 10, 'asdasd', '2025-06-04 21:03:06', '2025-06-04 21:03:06'),
+(75, 53, 10, 'asd', '2025-06-04 21:18:08', '2025-06-04 21:18:08'),
+(76, 53, 10, 'asfd', '2025-06-04 21:23:19', '2025-06-04 21:23:19'),
+(77, 53, 10, 'halo', '2025-06-04 21:30:42', '2025-06-04 21:30:42'),
+(78, 55, 10, 'hah', '2025-06-05 06:45:02', '2025-06-05 06:45:02'),
+(79, 56, 13, 'halo', '2025-06-05 06:53:35', '2025-06-05 06:53:35'),
+(80, 56, 13, 'p', '2025-06-05 06:55:10', '2025-06-05 06:55:10');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bookmarks`
+--
+
+CREATE TABLE `bookmarks` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `post_id` int(10) UNSIGNED NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `bookmarks`
+--
+
+INSERT INTO `bookmarks` (`id`, `user_id`, `post_id`, `created_at`) VALUES
+(5, 10, 44, '2025-06-04 18:15:46'),
+(6, 10, 46, '2025-06-04 19:14:01'),
+(7, 10, 53, '2025-06-04 21:16:11'),
+(11, 13, 55, '2025-06-05 06:52:14'),
+(12, 13, 56, '2025-06-05 06:53:41');
 
 -- --------------------------------------------------------
 
@@ -101,51 +152,26 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `user_id`, `title`, `content`, `image`, `created_at`, `updated_at`, `views`) VALUES
-(1, 2, 'halo', 'test', NULL, '2025-04-23 16:48:37', '2025-05-04 04:17:00', 1),
-(2, 2, 'apakah sudah bisa', 'halo', NULL, '2025-04-23 16:59:51', '2025-05-04 04:35:43', 3),
-(3, 3, 'ini postingan user 2', 'apakah bisa melihat?', NULL, '2025-05-03 06:55:22', '2025-05-04 04:17:36', 3),
-(4, 2, 'ini sudah di update', 'apakah bisa', NULL, '2025-05-04 03:27:29', '2025-05-04 03:27:29', 0),
-(5, 2, 'test', 'close windows', NULL, '2025-05-04 03:28:39', '2025-05-04 03:28:39', 0),
-(6, 2, 'asd', 'asd', NULL, '2025-05-04 03:30:31', '2025-05-04 03:30:31', 0),
-(7, 2, 'asd', 'dffd', NULL, '2025-05-04 03:31:46', '2025-05-04 03:31:46', 0),
-(8, 2, 'halo', 'ya', NULL, '2025-05-04 03:32:44', '2025-05-04 03:32:44', 0),
-(9, 2, 'ghd', 'shrfhfgd', NULL, '2025-05-04 03:33:27', '2025-05-04 03:33:27', 0),
-(10, 2, 'asd', 'asdads', NULL, '2025-05-04 03:35:02', '2025-05-04 03:35:02', 0),
-(11, 2, 'ajak', 'ya', NULL, '2025-05-04 03:36:14', '2025-05-04 03:36:14', 0),
-(12, 2, 'asda', 'asdadadsadasda', NULL, '2025-05-04 03:36:43', '2025-05-04 03:36:43', 0),
-(13, 6, 'aaa', 'aaa', NULL, '2025-05-04 03:40:05', '2025-05-04 04:40:37', 3),
-(14, 3, 'aku lelah', 'pol', NULL, '2025-05-04 03:48:04', '2025-05-04 04:52:35', 23),
-(15, 4, 'asd', 'sadasfda', NULL, '2025-05-04 04:54:35', '2025-05-04 05:07:21', 3),
-(16, 7, 'user berapa ini', 'n', NULL, '2025-05-04 08:54:48', '2025-05-04 08:54:48', 0),
-(17, 7, 'auhdhsd', 'asnjnauausbduabibd', NULL, '2025-05-04 09:08:21', '2025-05-04 09:08:21', 0),
-(18, 7, 'asdadasdad', 'asdads', NULL, '2025-05-04 09:09:00', '2025-05-04 09:09:00', 0),
-(19, 7, 'test', 'apa ya', NULL, '2025-05-04 09:13:44', '2025-05-04 09:13:44', 0),
-(20, 7, 'kenapa seseorang harus membuat seperti ini, apa gunanya?', 'mari kita bahas kegunaan dari hal seperti ini sdbafisfdassssssssssjjjjjjjjjjjjjjjjjjjjjjvvvvvvvvvvvvvvvvv', NULL, '2025-05-04 09:15:12', '2025-05-04 09:15:12', 0),
-(21, 7, 'asdsd', 'kkkkkkkk', NULL, '2025-05-04 09:16:31', '2025-05-04 09:16:31', 0),
-(22, 7, 'apa aja deh aku juga ga tau lagi, udah dari subuh ini sampe sore wkwk', 'lawak', NULL, '2025-05-04 09:21:17', '2025-05-04 09:21:17', 0),
-(24, 7, 'apa aja deh aku juga ga tau lagi, udah dari subuh ini sampe sore wkwkwkwkwk', 'aaa', NULL, '2025-05-04 09:27:32', '2025-05-04 09:27:32', 0),
-(25, 7, 'dsdsfsdfsdfsfdfd', 'sdfssdfsf', NULL, '2025-05-04 09:32:57', '2025-05-04 09:32:57', 0),
-(26, 7, 'apa aja deh aku juga ga tau lagi, udah dari subuh ini sampe sore wkwk', 'halo', NULL, '2025-05-04 09:36:52', '2025-05-04 09:36:52', 0),
-(27, 7, 'halo', 'halo1', NULL, '2025-05-04 09:37:16', '2025-05-04 09:37:16', 0),
-(28, 7, 'halo11', '11', NULL, '2025-05-04 09:39:08', '2025-05-04 09:39:08', 0),
-(29, 7, 'halo11', 'qq', NULL, '2025-05-04 09:41:02', '2025-05-04 09:41:02', 0),
-(30, 7, 'halo11', 'jj', NULL, '2025-05-04 09:41:27', '2025-05-04 09:41:27', 0),
-(31, 7, 'aa', 'aa', NULL, '2025-05-04 09:41:46', '2025-05-04 09:41:46', 0),
-(32, 7, 'aa', 'aa', NULL, '2025-05-04 09:42:11', '2025-05-04 09:42:11', 0),
-(33, 7, 'halo bro', 'apa', NULL, '2025-05-04 09:42:20', '2025-05-04 09:42:20', 0);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `post_likes`
---
-
-CREATE TABLE `post_likes` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `post_id` int(10) UNSIGNED NOT NULL,
-  `user_id` int(10) UNSIGNED NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(37, 9, 'ini adalah testing pertama', 'test123', NULL, '2025-05-22 07:31:05', '2025-06-04 17:46:02', 13),
+(38, 10, 'ini user 2', 'aaa', NULL, '2025-05-28 06:58:33', '2025-06-05 06:55:46', 30),
+(39, 9, 'asdf', 'sdaf', NULL, '2025-05-28 07:01:23', '2025-06-04 21:23:07', 18),
+(40, 11, 'Ayo kita mencari tahu matematika', 'matematika asik', NULL, '2025-05-28 08:45:08', '2025-05-28 08:45:08', 0),
+(41, 10, 'halo', 'halo', NULL, '2025-06-03 09:24:18', '2025-06-04 21:23:06', 16),
+(42, 10, 'test', 'test', NULL, '2025-06-03 09:25:38', '2025-06-03 09:25:38', 0),
+(43, 10, 'asddas', 'asddasdas', NULL, '2025-06-04 16:51:05', '2025-06-04 16:51:05', 0),
+(44, 10, 'dassda', 'sdadsads', NULL, '2025-06-04 16:51:08', '2025-06-04 21:23:07', 26),
+(45, 10, 'asdsdfasfads', 'asdfffsdaasd', NULL, '2025-06-04 18:29:29', '2025-06-04 18:29:29', 0),
+(46, 10, 'sdfafdg', 'sdfadsfsdfafsdfdsfsdasdafdsfsdfsdfds', NULL, '2025-06-04 19:13:58', '2025-06-04 19:13:58', 0),
+(47, 10, 'asdffdsfsda', 'sasdfadsfafdsdfasdsaffdasdfsdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf', NULL, '2025-06-04 19:22:11', '2025-06-04 19:22:11', 0),
+(48, 10, 'asd', 'asddasdasdasdsaasdasdasaaaaaaaaaaaaaaaa', NULL, '2025-06-04 19:22:38', '2025-06-04 19:22:38', 0),
+(49, 10, 'dfssdfasfdfas', 'fdsafsddfasfdsafdfdfdsdfasasdfadffsasfadfdsasdfasfaddfsdaasdffsdafdsafsdadasfasd', NULL, '2025-06-04 19:33:43', '2025-06-04 19:46:01', 5),
+(50, 10, 'asdasdfasff', 'sdfafadsfsadfsdasdfasadffdsadsfdasfasafsd', NULL, '2025-06-04 19:46:08', '2025-06-04 19:59:13', 8),
+(52, 10, 'test 123', 'iya halo', NULL, '2025-06-04 19:56:24', '2025-06-04 21:23:07', 24),
+(53, 10, 'asdf', '123', NULL, '2025-06-04 20:48:41', '2025-06-05 02:22:58', 21),
+(54, 13, 'temennya wowo ga ada yg bener', 'awokawokawok', NULL, '2025-06-05 02:24:11', '2025-06-05 02:24:11', 0),
+(55, 13, 'WOWO tektok', '\"Saya lagi membayangkan Prabowo mendaki Semeru. Terus pas nyampe di puncak dia mengibarkan bendera merah putih lalu dia berteriak, \"Titiek kembalilah ke pelukanku\". \r\n\r\nTerus habis itu dia menggelinding ke bawah seperti seekor landak. Pas nyampe di bawah dia langsung membeli jagung bakar.\"', NULL, '2025-06-05 02:27:17', '2025-06-05 02:27:17', 0),
+(56, 10, 'halo', 'oi', NULL, '2025-06-05 06:44:53', '2025-06-05 06:54:33', 3),
+(57, 13, 'a', 'a', NULL, '2025-06-05 06:55:18', '2025-06-05 06:55:18', 0);
 
 -- --------------------------------------------------------
 
@@ -172,12 +198,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `display_name`, `email`, `password`, `profile_pic`, `bio`, `role`, `status`, `created_at`, `updated_at`) VALUES
-(2, 'restu', 'Restu Wibisono', 'restu@gmail.com', 'aaa', 'default.jpg', NULL, 'user', 'active', '2025-04-23 11:18:31', '2025-04-23 11:18:31'),
-(3, 'user2', 'user2nihbos', 'user2@gmail.com', 'aaa', 'default.jpg', NULL, 'user', 'active', '2025-05-03 01:44:22', '2025-05-03 01:44:22'),
-(4, 'user3', 'user3ya', 'user3@gmail.com', 'aaa', 'default.jpg', NULL, 'user', 'active', '2025-05-03 02:16:44', '2025-05-03 07:18:30'),
-(5, 'user4', 'user4', 'user4@gmail.com', 'aaa', 'default.jpg', NULL, 'user', 'active', '2025-05-03 02:18:54', '2025-05-03 02:18:54'),
-(6, 'Restuu', 'Restu Wibisono', 'restuuu@gmail.com', 'aaa', 'default.jpg', NULL, 'user', 'active', '2025-05-03 22:39:47', '2025-05-03 22:39:47'),
-(7, 'user5', 'user5pict', 'user5@gmail.com', 'aaa', 'profile_6817292376ef3.jpg', NULL, 'user', 'active', '2025-05-04 03:45:23', '2025-05-04 03:45:23');
+(9, 'user1', 'user1', 'user1@gmail.com', 'aaa', 'profile_682ed29fe8738.jpg', NULL, 'user', 'active', '2025-05-22 02:30:39', '2025-05-22 02:30:39'),
+(10, 'user2', 'user2', 'user2@gmail.com', 'aaa', 'profile_684081c73a785.png', 'hello', 'user', 'active', '2025-05-28 01:58:12', '2025-06-04 17:26:31'),
+(11, 'ridwan', 'iwan', 'ridwan@gmail.com', 'aaa', 'profile_6836cce373dc9.jpg', NULL, 'user', 'active', '2025-05-28 03:44:19', '2025-05-28 03:44:19'),
+(12, 'user3', 'user3', 'user3@gmail.com', 'aaa', 'profile_683f41e5211e7.jpg', NULL, 'user', 'active', '2025-06-03 13:41:41', '2025-06-03 13:41:41'),
+(13, 'fufufafa', 'fufufafa', 'gibran@gmail.com', 'fufufafa', 'profile_684140238b293.jpg', 'halo', 'user', 'active', '2025-06-04 21:23:40', '2025-06-05 06:58:43');
 
 --
 -- Indexes for dumped tables
@@ -192,6 +217,14 @@ ALTER TABLE `answers`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indeks untuk tabel `bookmarks`
+--
+ALTER TABLE `bookmarks`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `unique_bookmark` (`user_id`,`post_id`),
+  ADD KEY `post_id` (`post_id`);
+
+--
 -- Indeks untuk tabel `messages`
 --
 ALTER TABLE `messages`
@@ -204,14 +237,6 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `posts`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indeks untuk tabel `post_likes`
---
-ALTER TABLE `post_likes`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `unique_like` (`post_id`,`user_id`),
   ADD KEY `user_id` (`user_id`);
 
 --
@@ -230,7 +255,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `answers`
 --
 ALTER TABLE `answers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+
+--
+-- AUTO_INCREMENT untuk tabel `bookmarks`
+--
+ALTER TABLE `bookmarks`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `messages`
@@ -242,19 +273,13 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT untuk tabel `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
--- AUTO_INCREMENT untuk tabel `post_likes`
---
-ALTER TABLE `post_likes`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
@@ -268,6 +293,13 @@ ALTER TABLE `answers`
   ADD CONSTRAINT `answers_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
+-- Ketidakleluasaan untuk tabel `bookmarks`
+--
+ALTER TABLE `bookmarks`
+  ADD CONSTRAINT `bookmarks_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `bookmarks_ibfk_2` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE;
+
+--
 -- Ketidakleluasaan untuk tabel `messages`
 --
 ALTER TABLE `messages`
@@ -279,13 +311,6 @@ ALTER TABLE `messages`
 --
 ALTER TABLE `posts`
   ADD CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
-
---
--- Ketidakleluasaan untuk tabel `post_likes`
---
-ALTER TABLE `post_likes`
-  ADD CONSTRAINT `post_likes_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `post_likes_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

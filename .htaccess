@@ -1,5 +1,0 @@
-ErrorDocument 400 /speakup/error.php
-ErrorDocument 401 /speakup/error.php
-ErrorDocument 403 /speakup/error.php
-ErrorDocument 404 /speakup/error.php
-ErrorDocument 500 /speakup/error.php
