@@ -1,0 +1,64 @@
+@import url('https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css');
+
+/* Custom Styles */
+body {
+    font-family: Arial, sans-serif;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #333;
+}
+
+.btn-secondary {
+    width: 100%;
+    padding: 10px;
+    background-color: gray;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-align: center;
+    display: block;
+    transition: 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #666;
+}
+
+.link {
+    color: black;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.link:hover {
+    background-color: #f0f0f0;
+}
