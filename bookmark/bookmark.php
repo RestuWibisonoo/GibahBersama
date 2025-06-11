@@ -206,7 +206,7 @@ include('../includes/header.php');
         const postElement = document.getElementById(`post-${postId}`);
         
         try {
-            const response = await fetch('../bookmark_handler.php', {
+            const response = await fetch('../bookmark/bookmark_handler.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -216,6 +216,10 @@ include('../includes/header.php');
                     action: isBookmarked ? 'remove' : 'add'
                 })
             });
+            
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
             
             const result = await response.json();
             
@@ -238,7 +242,7 @@ include('../includes/header.php');
                     icon.src = "../assets/img/icons/full/bookmark.png";
                 }
             } else {
-                alert(result.message);
+                alert(result.message || 'Error updating bookmark');
             }
         } catch (error) {
             console.error('Error:', error);
@@ -264,14 +268,19 @@ include('../includes/header.php');
     // Delete post function
     function deletePost(postId) {
         if (confirm('Are you sure you want to delete this post?')) {
-            fetch('../delete_post.php', {
+            fetch('../post/delete_post.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ postId: postId })
             })
-            .then(response => response.json())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then(data => {
                 if (data.success) {
                     document.getElementById(`post-${postId}`).remove();
