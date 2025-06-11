@@ -154,18 +154,6 @@ try {
                     <span>Home</span>
                 </a>
 
-                <a href="../message/message.php"
-                    class="nav-link flex items-center space-x-3 p-3 <?= basename($_SERVER['PHP_SELF']) === 'message.php' ? 'active' : '' ?>">
-                    <img src="../assets/img/icons/outline/message.png" class="w-6 h-6" alt="Messages">
-                    <span>Messages</span>
-                </a>
-
-                <a href="../community/community.php"
-                    class="nav-link flex items-center space-x-3 p-3 <?= basename($_SERVER['PHP_SELF']) === 'community.php' ? 'active' : '' ?>">
-                    <img src="../assets/img/icons/outline/community.png" class="w-6 h-6" alt="Community">
-                    <span>Community</span>
-                </a>
-
                 <a href="../bookmark/bookmark.php"
                     class="nav-link flex items-center space-x-3 p-3 <?= basename($_SERVER['PHP_SELF']) === 'bookmark.php' ? 'active' : '' ?>">
                     <img src="../assets/img/icons/outline/bookmark.png" class="w-6 h-6" alt="Bookmarks">
@@ -200,7 +188,7 @@ try {
                 </div>
 
                 <!-- User Actions -->
-                <div class="flex items-center space-x-6"> <!-- Tambah space-x-6 untuk jarak lebih lebar -->
+                <div class="flex items-center space-x-6">
                     <!-- Create Post Button -->
                     <button onclick="openPopup()" class="p-3 rounded-full hover:bg-gray-100 transition text-lg"
                         title="Create Post">
